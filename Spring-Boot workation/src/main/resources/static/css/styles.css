@@ -1,0 +1,15 @@
+body {
+    font-family: Arial, sans-serif;
+}
+table {
+    width: 50%;
+    border-collapse: collapse;
+}
+td, th {
+    padding: 10px;
+    border: 1px solid #000;
+}
+a {
+    text-decoration: none;
+    color: blue;
+}

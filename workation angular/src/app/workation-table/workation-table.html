@@ -1,0 +1,37 @@
+<table>
+  <thead>
+    <tr>
+      <th (click)="sortBy('employee')">Employee</th>
+      <th (click)="sortBy('origin')">Origin</th>
+      <th (click)="sortBy('destination')">Destination</th>
+      <th (click)="sortBy('start')">Start</th>
+      <th (click)="sortBy('end')">End</th>
+      <th (click)="sortBy('workingdays')">Working Days</th>
+      <th (click)="sortBy('risk')">Risk</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let workation of workations">
+      <td>{{ workation.employee }}</td>
+      <!-- Display flags instead of origin and destination text -->
+      <td>
+        <img [src]="'../../assets/' + workation.origin + '.svg.png'" alt="{{ workation.origin }}" width="30" height="20" />
+        {{workation.origin }}
+      </td>
+      <td>
+        <img [src]="'../../assets/' + workation.destination + '.svg.png'" alt="{{ workation.destination }}" width="30" height="20" />
+         {{workation.destination }}
+      </td>
+      <td>{{ workation.start }}</td>
+      <td>{{ workation.end }}</td>
+      <td>{{ workation.workingdays }}</td>
+      <!-- Risk Column: Dynamically set the flag based on risk -->
+      <td>
+        <img *ngIf="workation.risk === 'HIGH'" src="../../assets/red-risk.svg" alt="High risk" height="20" />
+        <img *ngIf="workation.risk === 'LOW'" src="../../assets/yellow-risk.svg" alt="Low risk" height="20" />
+        <img *ngIf="workation.risk === 'NO'" src="../../assets/green-risk.svg" alt="No risk" height="20" />
+          {{ workation.risk.charAt(0).toUpperCase() + workation.risk.slice(1).toLowerCase() }} risk
+      </td>
+    </tr>
+  </tbody>
+</table>
